@@ -1,0 +1,149 @@
+.parentDiv input {
+	padding: 0;
+}
+
+.parentDiv:hover .addAbilityButton {
+	display: block;
+}
+
+.labelDiv {
+	display: flex;
+	flex-direction: row;
+}
+
+.addAbilityButton {
+	margin: 4px;
+	align-content: end;
+	opacity: 0.3;
+}
+
+.addAbilityButton:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.armorBlockContent {
+	position: absolute;
+	z-index: 3;
+	max-width: 520px;
+	width: 100%;
+}
+
+.armorWrapper {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 3%;
+	border-bottom-left-radius: 3%;
+	margin-top: -4px;
+	margin-left: 9px;
+	margin-bottom: -6px;
+	border-top: 2px solid hsl(206, 61%, 80%);
+	border-left: 2px solid hsl(206, 61%, 80%);
+	border-right: 2px solid hsl(206, 61%, 80%);
+	padding-top: 5px;
+	padding-bottom: 2px;
+	background-color: rgb(241, 241, 241);
+}
+
+.individualArmor {
+	position: relative;
+	border: 2px solid black;
+	border-radius: 4px;
+	margin: -4px 0 0 10px;
+	justify-content: space-evenly;
+	margin-bottom: 6px;
+}
+
+.topRow {
+	display: grid;
+	grid-template-columns: 1fr 0fr 0.6fr 0fr 0.1fr;
+	border-bottom: 2px solid black;
+	padding-left: 2px;
+}
+
+.bottomRow {
+	display: grid;
+	grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 1fr;
+}
+
+.inputDiv {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+}
+
+.inputDivEquip {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 0.9em;
+	text-align: center;
+}
+.inputDivEquip div {
+	margin-bottom: -8px;
+}
+
+.inputLabel {
+	font-size: smaller;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.textInput {
+	font-size: 1.2em;
+	font-weight: bold;
+	border: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+
+.checkboxInput {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.ammoInput::-webkit-outer-spin-button,
+.ammoInput::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.numberInput {
+	width: 36px;
+}
+
+.verticalBar {
+	border-right: 2px solid black;
+	margin-right: 1px;
+}
+
+.individualArmor:hover .delete {
+	display: block;
+}
+
+.delete {
+	opacity: 0.377;
+	position: absolute;
+	border: 1px solid rgba(0, 0, 0);
+	border-radius: 8px;
+	background-color: rgb(238, 61, 61);
+	font-size: 2em;
+	font-weight: bold;
+	padding: 0px 4px 0px 4px;
+	bottom: 4px;
+	right: 0;
+}
+
+.delete:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1120px) {
+	.delete {
+		display: none;
+	}
+
+	.addAbilityButton {
+		display: none;
+	}
+}

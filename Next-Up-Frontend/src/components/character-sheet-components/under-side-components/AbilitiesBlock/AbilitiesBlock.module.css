@@ -1,0 +1,151 @@
+.parentDiv:hover .addAbilityButton {
+	display: block;
+}
+
+.labelDiv {
+	display: flex;
+	flex-direction: row;
+}
+
+.addAbilityButton {
+	margin: 4px;
+	align-content: end;
+	opacity: 0.3;
+}
+
+.addAbilityButton:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.individualAbility {
+	display: grid;
+	border: 2px solid black;
+	grid-template-columns: 1fr 0.1fr;
+	width: 550px;
+	border-radius: 4px;
+	margin: -4px 0 0 10px;
+	margin-bottom: 6px;
+}
+
+.leftBlock {
+	position: relative;
+	justify-content: space-evenly;
+}
+
+.topRow {
+	display: grid;
+	grid-template-columns: 1fr 0fr 0.4fr 0fr 0.1fr;
+	border-bottom: 2px solid black;
+}
+
+.abilityDescription {
+	padding-right: 4px;
+}
+
+.abilityTextarea {
+	width: 100%;
+	border: none;
+	outline: none;
+	height: 171px;
+}
+
+.inputDiv {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+}
+
+.inputLabel {
+	font-size: smaller;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.numberInput {
+	width: 23px;
+	font-size: 1em;
+	font-weight: bold;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.textInput {
+	font-size: 1.2em;
+	font-weight: bold;
+	border: none;
+	width: 100%;
+}
+
+.verticalBar {
+	border-right: 2px solid black;
+	margin-right: 1px;
+}
+
+.individualAbility:hover .delete {
+	display: block;
+}
+
+.delete {
+	opacity: 0.377;
+	position: absolute;
+	border: 1px solid rgba(0, 0, 0);
+	border-radius: 8px;
+	background-color: rgb(238, 61, 61);
+	font-size: 2em;
+	font-weight: bold;
+	padding: 0px 4px 0px 4px;
+	bottom: 4px;
+	right: 0;
+}
+
+.delete:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.typeDiv {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 2px;
+	border-left: 2px solid black;
+	width: max-content;
+	margin-right: 12px;
+}
+
+.actionRow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.actionRow input {
+	margin: 2px -8px 2px -8px;
+}
+.typeDivLabel {
+	font-weight: bold;
+}
+
+@media screen and (min-width: 1120px) {
+	.individualAbility {
+		width: 100%;
+	}
+	.delete {
+		display: none;
+	}
+
+	.addAbilityButton {
+		display: none;
+	}
+}
+
+.dropDownWrapper {
+	position: sticky;
+	bottom: 0;
+}

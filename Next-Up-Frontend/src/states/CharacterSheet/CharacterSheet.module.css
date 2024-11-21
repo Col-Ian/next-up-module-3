@@ -1,0 +1,133 @@
+.parentDiv {
+	justify-content: center;
+	/* background-color: white;
+	margin-top: 8px;
+	
+	border: 5px solid hsl(206, 61%, 80%);
+	padding: 2px;
+	border-radius: 8px; */
+}
+
+.characterSheetMainDiv {
+	background-color: white;
+	margin-top: 8px;
+	justify-content: center;
+	border: 5px solid hsl(206, 61%, 80%);
+	padding: 2px;
+	border-radius: 8px;
+	font-size: 0.8rem;
+	width: 100%;
+	margin: 16px 0px 0px 0px;
+}
+
+.characterInfoDescriptionBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.characterInfoDescriptionBlock input {
+	border: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+input {
+	font-size: 1rem;
+}
+textarea {
+	font-size: 1rem;
+}
+
+.statArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.underWrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.underSide {
+	max-width: 1050px;
+	width: 100%;
+}
+
+.firstLevelMessageParentDiv {
+	height: 90vh;
+	align-content: center;
+	max-width: 520px;
+}
+
+.firstLevelMessageWrapper {
+	color: hsl(190, 100%, 95%);
+	background-color: #061626;
+	margin-top: 8px;
+	justify-content: center;
+	border: 5px solid hsl(208, 51%, 56%);
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.bottomSheetButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.levelUpButtonDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.levelUpButtonDiv a {
+	font-weight: bold;
+	color: #04121f;
+	text-decoration: none;
+	text-align: center;
+	padding: 8px;
+	border: 2px solid hsl(211, 39%, 37%);
+	background-color: hsl(209, 88%, 61%);
+	width: 110px;
+	margin: 4px 24px 4px 24px;
+}
+
+.levelUpButtonDiv a:hover {
+	background-color: hsl(209, 68%, 55%);
+	cursor: pointer;
+}
+
+.levelUpBeyondButton {
+	display: flex;
+	justify-content: center;
+}
+
+.levelUpBeyondButton a,
+.deleteButton {
+	font-weight: bold;
+	color: #04121f;
+	text-decoration: none;
+	text-align: center;
+	padding: 8px;
+	border: 2px solid hsl(7, 47%, 68%);
+	background-color: hsl(9, 77%, 44%);
+	width: 110px;
+	margin: 4px 24px 4px 24px;
+}
+
+.levelUpBeyondButton a:hover,
+.deleteButton:hover {
+	background-color: hsl(9, 77%, 38%);
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1120px) {
+	.characterInfoDescriptionBlock {
+		flex-direction: row;
+	}
+
+	.statArea {
+		flex-direction: row;
+	}
+}

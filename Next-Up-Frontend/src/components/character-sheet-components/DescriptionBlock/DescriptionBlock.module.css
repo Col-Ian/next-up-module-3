@@ -1,0 +1,20 @@
+.descriptionBlockWrap {
+	position: relative;
+	border: 2px solid black;
+	border-radius: 4px;
+	margin: -4px 0 0 10px;
+	justify-content: space-evenly;
+	margin-bottom: 6px;
+	height: 175px;
+	padding-right: 9px;
+	padding-bottom: 8px;
+}
+
+.parentDiv textarea {
+	width: 480px;
+	height: 100%;
+	margin-right: -5px;
+	padding: 4px;
+	border: none;
+	outline: none;
+}

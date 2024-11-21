@@ -1,0 +1,63 @@
+.plusCircle {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.navBarItem {
+	padding: 8px;
+	text-decoration: underline 4px hsl(206, 71%, 9%);
+}
+
+.navBarItem:hover {
+	text-decoration: underline 4px hsl(206, 71%, 9%, 0.555);
+}
+
+.navBarItem a {
+	text-decoration: none;
+	color: hsl(206, 71%, 9%);
+}
+.navBarItem a:hover {
+	color: hsl(206, 71%, 9%, 0.555);
+}
+
+.createCharacter,
+.homePageDiv {
+	text-decoration: none;
+}
+
+.createCharacter:hover,
+.homePageDiv:hover {
+	text-decoration: none;
+}
+
+.createCharacter a {
+	color: rgb(179, 27, 0);
+}
+
+.createCharacter a:hover {
+	color: rgba(179, 27, 0, 0.555);
+}
+
+.navBarParent {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.navBarWrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+@media screen and (min-width: 1480px) {
+	.navBarParent {
+		max-width: 170px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.navBarWrapper {
+		flex-direction: column;
+	}
+}

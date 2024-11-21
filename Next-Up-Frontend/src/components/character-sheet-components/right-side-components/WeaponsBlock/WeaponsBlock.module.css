@@ -1,0 +1,153 @@
+.parentDiv input {
+	padding: 0;
+}
+
+.parentDiv:hover .addAbilityButton {
+	display: block;
+}
+
+.labelDiv {
+	display: flex;
+	flex-direction: row;
+}
+
+.addAbilityButton {
+	margin: 4px;
+	align-content: end;
+	opacity: 0.3;
+}
+
+.addAbilityButton:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.weaponsBlockContent {
+	position: absolute;
+	z-index: 4;
+	max-width: 520px;
+	width: 100%;
+}
+
+.weaponsWrapper {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 3%;
+	border-bottom-left-radius: 3%;
+	margin-top: -4px;
+	margin-left: 9px;
+	margin-bottom: -6px;
+	border-top: 2px solid hsl(206, 61%, 80%);
+	border-left: 2px solid hsl(206, 61%, 80%);
+	border-right: 2px solid hsl(206, 61%, 80%);
+	padding-top: 5px;
+	padding-bottom: 2px;
+	background-color: rgb(241, 241, 241);
+}
+
+.individualWeapon {
+	position: relative;
+	border: 2px solid black;
+	border-radius: 4px;
+	margin: -4px 1px 0 1px;
+	justify-content: space-evenly;
+	margin-bottom: 6px;
+}
+
+.topRow {
+	display: grid;
+	grid-template-columns: 1fr 0fr 0.6fr 0fr 0.1fr;
+	border-bottom: 2px solid black;
+	padding-left: 2px;
+}
+
+.middleRow {
+	display: grid;
+	grid-template-columns: 0.4fr 1fr 0.7fr 0.7fr;
+	border-bottom: 2px solid black;
+	padding-left: 2px;
+}
+
+.bottomRow {
+	display: grid;
+	grid-template-columns: 0.8fr 0fr 0.3fr 0fr 1fr;
+	padding-left: 2px;
+}
+
+.numberInput {
+	width: 36px;
+}
+
+.numberInput::-webkit-inner-spin-button {
+	display: none;
+}
+
+.ammoInput {
+	width: 23px;
+	font-size: 1em;
+	font-weight: bold;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.inputDiv {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+}
+
+.inputLabel {
+	font-size: smaller;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.textInput {
+	font-size: 1.2em;
+	font-weight: bold;
+	border: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+
+.ammoInput::-webkit-outer-spin-button,
+.ammoInput::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.verticalBar {
+	border-right: 2px solid black;
+	margin-right: 1px;
+}
+
+.individualWeapon:hover .delete {
+	display: block;
+}
+
+.delete {
+	opacity: 0.377;
+	position: absolute;
+	border: 1px solid rgba(0, 0, 0);
+	border-radius: 8px;
+	background-color: rgb(238, 61, 61);
+	font-size: 2em;
+	font-weight: bold;
+	padding: 0px 4px 0px 4px;
+	bottom: 4px;
+	right: 0;
+}
+
+.delete:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1120px) {
+	.delete {
+		display: none;
+	}
+
+	.addAbilityButton {
+		display: none;
+	}
+}

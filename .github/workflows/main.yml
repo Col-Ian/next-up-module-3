@@ -1,0 +1,38 @@
+name: Lint & Build Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: ./Next-Up-Backend
+        run: npm install
+
+      - name: Run ESLint
+        working-directory: ./Next-Up-Backend
+        run: npm run lint
+
+      - name: Build Project
+        working-directory: ./Next-Up-Backend
+        run: npm run build
+
+      - name: Unit Test
+        working-directory: ./Next-Up-Backend
+        run: npm run test

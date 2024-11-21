@@ -1,0 +1,87 @@
+body {
+	background-image: url('./assets/starry-sky.jpg');
+	background-color: #051626;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Orbitron', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.appParent {
+	display: flex;
+	flex-direction: column;
+}
+
+.outletBody {
+	display: flex;
+	justify-content: center;
+}
+
+.navBar {
+	margin: 0;
+	background-color: hsl(206, 61%, 80%);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+textarea {
+	resize: none;
+}
+/* Scrollbar */
+textarea::-webkit-scrollbar {
+	width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+	margin: 2px;
+	background: none;
+	border-radius: 5px;
+}
+textarea::-webkit-scrollbar-thumb {
+	border: 1px solid #555;
+	border-radius: 0.5em;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+textarea::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+input[type='text'] {
+	text-overflow: ellipsis;
+	overflow: scroll;
+}
+
+/* 
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 400 to 900 
+*/
+
+/* .backgroundDiv {
+	content: '';
+	background-image: url('./assets/starfinder-pact-worlds.jpeg');
+	background-size: cover;
+	position: absolute;
+	background-attachment: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 1;
+	transform: opacity 2s;
+} */
+
+@media screen and (min-width: 1480px) {
+	.navBar {
+		position: fixed;
+		height: 100%;
+		max-width: 180px;
+		min-width: 180px;
+		text-overflow: ellipsis;
+		border-radius: 0 16px 16px 0;
+	}
+}

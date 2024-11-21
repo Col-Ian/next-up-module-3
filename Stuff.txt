@@ -1,0 +1,27 @@
+{
+	"id": "Testing",
+	"player_fk": "Foreign Key",
+	"strScore": 16,
+	"strBonus": 15,
+	"strPenalty": 15,
+	"dexScore": 15,
+	"dexBonus": 15,
+	"dexPenalty": 15,
+	"conScore": 15,
+	"conBonus": 15,
+	"conPenalty": 15,
+	"intScore": 15,
+	"intBonus": 15,
+	"intPenalty": 15,
+	"wisScore": 15,
+	"wisBonus": 15,
+	"wisPenalty": 15,
+	"chaScore": 15,
+	"chaBonus": 15,
+	"chaPenalty": 15
+}
+
+{
+    "status": "success",
+    "data": "Created Johnny"
+}
