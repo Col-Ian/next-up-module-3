@@ -26,7 +26,7 @@ type character = {
 export async function insertCharacter(character: character) {
 	const characterQuery = `INSERT INTO public.characters(id, player_fk) VALUES($1, $2) RETURNING *`;
 
-	pool.query(
+	await pool.query(
 		characterQuery,
 		[character.id, character.player_fk],
 		(err: any, res: any) => {
@@ -39,42 +39,42 @@ export async function insertCharacter(character: character) {
 	);
 
 	// Ability Scores
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Strength',
 		character.id,
 		character.strScore,
 		character.strBonus,
 		character.strPenalty
 	);
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Dexterity',
 		character.id,
 		character.dexScore,
 		character.dexBonus,
 		character.dexPenalty
 	);
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Constitution',
 		character.id,
 		character.conScore,
 		character.conBonus,
 		character.conPenalty
 	);
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Intelligence',
 		character.id,
 		character.intScore,
 		character.intBonus,
 		character.intPenalty
 	);
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Wisdom',
 		character.id,
 		character.wisScore,
 		character.wisBonus,
 		character.wisPenalty
 	);
-	insertAbilityScore(
+	await insertAbilityScore(
 		'Charisma',
 		character.id,
 		character.chaScore,

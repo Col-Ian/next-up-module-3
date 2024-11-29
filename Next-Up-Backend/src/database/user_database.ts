@@ -18,7 +18,7 @@ import { pool } from '../utils/databasePool';
 // });
 
 export async function insertUser(
-	user_id: number,
+	user_id: string,
 	username: string,
 	user_password: string,
 	user_email: string
@@ -41,7 +41,7 @@ export async function insertUser(
 	// client.release(true);
 }
 
-export async function getSingleUser(user_id: number) {
+export async function getSingleUser(user_id: string) {
 	const idQuery = `SELECT * FROM public.users WHERE user_id=$1`;
 
 	let response = await pool.query(idQuery, [user_id]);
@@ -50,7 +50,7 @@ export async function getSingleUser(user_id: number) {
 }
 
 // Test
-export async function deleteSingleUser(user_id: number) {
+export async function deleteSingleUser(user_id: string) {
 	const client = await pool.connect();
 	const idQuery = `DELETE FROM public.users WHERE user_id=$1`;
 

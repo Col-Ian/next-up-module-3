@@ -10,14 +10,14 @@ import {
 type email = string;
 
 export interface User {
-	id?: number;
+	id?: string;
 	name: string;
 	password: string;
 	email: email;
 }
 
 const UserSchema = Joi.object<User>({
-	id: Joi.number().optional(),
+	id: Joi.string().optional(),
 	name: Joi.string().required(),
 	password: Joi.string().required(),
 	email: Joi.string().email().required(),
@@ -38,17 +38,18 @@ export const createUser = (req: Request, res: Response) => {
 			.json(rest.error('User ID will be generated automatically'));
 	}
 
-	const id = Math.floor(Math.random() * 1000000);
+	// const id = Math.floor(Math.random() * 1000000);
+	const id = crypto.randomUUID();
 	insertUser(id, user.name, user.password, user.email);
 
 	return res.status(200).json(rest.success(`Created ${user.name}`));
 };
 
 export const getUser = async (req: Request, res: Response) => {
-	const id = parseInt(req.params.id);
-	if (Number.isNaN(id)) {
-		return res.status(400).json(rest.error('Invalid user ID'));
-	}
+	const id = req.params.id;
+	// if (Number.isNaN(id)) {
+	// 	return res.status(400).json(rest.error('Invalid user ID'));
+	// }
 
 	// const user = DEMO_USERS.find((u) => u.id === id);
 	const user = await getSingleUser(id);
@@ -60,11 +61,12 @@ export const getUser = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response) => {
-	const id = parseInt(req.params.id);
+	// const id = parseInt(req.params.id);
+	const id = req.params.id;
 
-	if (Number.isNaN(id)) {
-		return res.status(400).json(rest.error('Invalid user ID'));
-	}
+	// if (Number.isNaN(id)) {
+	// 	return res.status(400).json(rest.error('Invalid user ID'));
+	// }
 
 	// const user = DEMO_USERS.find((user) => user.id === id);
 	const user = await getSingleUser(id);
