@@ -14,7 +14,7 @@
 import { type Request, type Response } from 'express';
 import * as rest from '../utils/rest';
 import Joi, { number } from 'joi';
-import { insertCharacter } from '../database/character_database';
+import { insertCreateCharacter } from '../database/character_database';
 
 export interface Character {
 	id: string;
@@ -37,7 +37,16 @@ export interface Character {
 	chaScore: number;
 	chaBonus: number;
 	chaPenalty: number;
+	abilities: AbilityListTypes[];
 }
+
+type AbilityListTypes = {
+	abilityName: string;
+	abilityDescription: string;
+	abilitySource: string;
+	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
+	usesResolve: number;
+};
 
 const CharacterSchema = Joi.object<Character>({
 	id: Joi.string().required(),
@@ -60,9 +69,16 @@ const CharacterSchema = Joi.object<Character>({
 	chaScore: Joi.number().required(),
 	chaBonus: Joi.number().required(),
 	chaPenalty: Joi.number().required(),
+	abilities: Joi.array().items({
+		abilityName: Joi.string().required(),
+		abilityDescription: Joi.string().required(),
+		abilitySource: Joi.string().required(),
+		actionType: Joi.array().items(Joi.boolean()).required(),
+		usesResolve: Joi.number().required(),
+	}),
 });
 
-export const createCharacter = (req: Request, res: Response) => {
+export const createCharacter = async (req: Request, res: Response) => {
 	try {
 		const { error, value } = CharacterSchema.validate(req.body);
 		if (error !== undefined) {
@@ -71,9 +87,10 @@ export const createCharacter = (req: Request, res: Response) => {
 				.json(rest.error('Data is not formatted correctly.'));
 		}
 
-		const character: Character = value;
-		insertCharacter(character);
+		const newCharacter: Character = value;
+		await insertCreateCharacter(newCharacter);
+		return res.status(200).json(rest.success('Character created.'));
 	} catch {
-		return res.status(500);
+		return res.status(500).json(rest.error('Character not created.'));
 	}
 };

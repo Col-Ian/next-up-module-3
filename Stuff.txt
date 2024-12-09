@@ -1,6 +1,6 @@
 {
 	"id": "Testing",
-	"player_fk": "Foreign Key",
+	"player_fk": "3b359513-1e29-44f1-9dbb-4a0f978331e5",
 	"strScore": 16,
 	"strBonus": 15,
 	"strPenalty": 15,

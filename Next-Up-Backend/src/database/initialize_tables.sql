@@ -1,8 +1,8 @@
 CREATE TABLE public.users (
     user_id varchar PRIMARY KEY,
-    username character NOT NULL,
-    user_password character UNIQUE NOT NULL,
-    user_email character NOT NULL
+    username varchar NOT NULL,
+    user_password varchar UNIQUE NOT NULL,
+    user_email varchar NOT NULL
 );
 
 CREATE TABLE public.characters (
@@ -25,7 +25,7 @@ CREATE TABLE public.character_basic_info (
     character_name varchar,
     character_size varchar,
     speed varchar,
-    player_name character
+    player_name varchar
 );
 
 CREATE TABLE public.text_boxes (
@@ -52,11 +52,11 @@ CREATE TABLE public.skills (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
     skill_name varchar,
-    armorCheckPenalty boolean,
-    attributeAffecting varchar,
-    classSkillBonus integer,
-    insightBonusToRank integer,
-    insightBonusToValue integer,
+    armor_check_penalty boolean,
+    attribute_affecting varchar,
+    classs_skill_bonus integer,
+    insight_bonus_to_rank integer,
+    insight_bonus_to_value integer,
     isClassSkill boolean,
     operativeSpecializationSkill integer,
     racialBonusToValue integer,
@@ -107,7 +107,7 @@ CREATE TABLE public.armor (
 CREATE TABLE public.weapons (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
-    weaponAmmoTotal integer,
+    weapon_ammo_total integer,
     weaponAmmoUsage integer,
     weaponCritical varchar,
     weaponDamageRoll varchar,
