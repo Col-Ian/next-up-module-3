@@ -22,6 +22,8 @@ type character = {
 	chaBonus: number;
 	chaPenalty: number;
 	abilities: AbilityListTypes[];
+	spells: SpellListTypes[];
+	skills: SkillListType[];
 };
 
 type AbilityListTypes = {
@@ -30,6 +32,38 @@ type AbilityListTypes = {
 	abilitySource: string;
 	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
 	usesResolve: number;
+};
+
+type SkillListType = {
+	skillName: string;
+	isClassSkill: boolean;
+	classSkillBonus: number;
+	trainingRequired: boolean;
+	value: number;
+	insightBonusToValue: number;
+	skillFocus: boolean;
+	racialBonusToValue: number;
+	ranks: number;
+	insightBonusToRank: number;
+	operativeSpecializationSkill: boolean;
+	armorCheckPenalty: boolean;
+	attributeAffecting: string;
+};
+
+type SpellListTypes = {
+	spellTitle: string;
+	spellPreviewDescription: string;
+	spellSchool: string;
+	spellCastingTime: string;
+	spellRange: string;
+	spellTargets: string;
+	spellArea: string;
+	spellEffect: string;
+	spellDuration: string;
+	spellSavingThrow: string;
+	spellResistance: string;
+	spellDescriptionFull: string;
+	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
 };
 
 export async function insertCreateCharacter(character: character) {
@@ -95,7 +129,16 @@ export async function insertCreateCharacter(character: character) {
 	);
 
 	character.abilities.forEach((ability) => {
-		insertAbility(character.id, ability);
+		promises.push(insertAbility(character.id, ability));
+	});
+
+	character.skills.forEach((skill) => {
+		promises.push(insertSkill(character.id, skill));
+	});
+
+	// Since this is for character creation, no character will have anything over a level 0 spell basekit.
+	character.spells.forEach((spell) => {
+		promises.push(insertSpell(character.id, 0, spell));
 	});
 
 	await Promise.all(promises);
@@ -134,5 +177,57 @@ function insertAbility(character_fk: string, ability: AbilityListTypes) {
 		ability.actionType[4],
 		ability.actionType[5],
 		ability.usesResolve,
+	]);
+}
+
+function insertSkill(character_fk: string, skill: SkillListType) {
+	const skillQuery = `INSERT INTO public.skills(character_fk, skill_name, armor_check_penalty, attribute_affecting, classs_skill_bonus, insight_bonus_to_rank, insight_bonus_to_value, is_class_skill, operative_specialization_skill, racial_bonus_to_value, ranks, skill_focus, training_required, base_value ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`;
+
+	pool.query(skillQuery, [
+		character_fk,
+		skill.skillName,
+		skill.armorCheckPenalty,
+		skill.attributeAffecting,
+		skill.classSkillBonus,
+		skill.insightBonusToRank,
+		skill.insightBonusToValue,
+		skill.isClassSkill,
+		skill.operativeSpecializationSkill,
+		skill.racialBonusToValue,
+		skill.ranks,
+		skill.skillFocus,
+		skill.trainingRequired,
+		skill.value,
+	]);
+}
+
+function insertSpell(
+	character_fk: string,
+	spellLevel: number,
+	spell: SpellListTypes
+) {
+	const spellQuery = `INSERT INTO public.spells(character_fk, spell_level, standard_action, move_action, swift_action, full_action, reaction, other_action, spell_area, spell_casting_time, spell_description_full, spell_duration, spell_effect, spell_preview_description, spell_range, spell_resistance, spell_saving_throw, spell_school, spell_targets, spell_title ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)`;
+
+	pool.query(spellQuery, [
+		character_fk,
+		spellLevel,
+		spell.actionType[0],
+		spell.actionType[1],
+		spell.actionType[2],
+		spell.actionType[3],
+		spell.actionType[4],
+		spell.actionType[5],
+		spell.spellArea,
+		spell.spellCastingTime,
+		spell.spellDescriptionFull,
+		spell.spellDuration,
+		spell.spellEffect,
+		spell.spellPreviewDescription,
+		spell.spellRange,
+		spell.spellResistance,
+		spell.spellSavingThrow,
+		spell.spellSchool,
+		spell.spellTargets,
+		spell.spellTitle,
 	]);
 }

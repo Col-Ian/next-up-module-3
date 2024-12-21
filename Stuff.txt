@@ -25,3 +25,8 @@
     "status": "success",
     "data": "Created Johnny"
 }
+
+
+		"local-package": "file:../types",
+
+		

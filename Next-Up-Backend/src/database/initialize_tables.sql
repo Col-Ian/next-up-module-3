@@ -16,6 +16,7 @@ CREATE TABLE public.character_basic_info (
     FOREIGN KEY (character_fk) REFERENCES characters(id),
     character_class varchar,
     character_level integer,
+    key_ability_score varchar
     race varchar,
     theme varchar,
     alignment varchar,
@@ -57,13 +58,12 @@ CREATE TABLE public.skills (
     classs_skill_bonus integer,
     insight_bonus_to_rank integer,
     insight_bonus_to_value integer,
-    isClassSkill boolean,
-    operativeSpecializationSkill integer,
-    racialBonusToValue integer,
+    is_class_skill boolean,
+    operative_specialization_skill integer,
+    racial_bonus_to_value integer,
     ranks integer,
-    skillFocus boolean,
-    skillName varchar,
-    trainingRequired boolean,
+    skill_focus boolean,
+    training_required boolean,
     base_value integer
 );
 
@@ -94,67 +94,67 @@ CREATE TABLE public.misc_values (
 CREATE TABLE public.armor (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
-    armorEAC integer,
-    armorKAC integer,
-    armorLevel integer,
-    armorName varchar,
-    armorProficiency varchar,
-    armorType varchar,
-    isEquipped boolean,
-    maxDexBonus integer
+    armor_eac integer,
+    armor_kac integer,
+    armor_level integer,
+    armor_name varchar,
+    armor_proficiency varchar,
+    armor_type varchar,
+    is_equipped boolean,
+    max_dex_bonus integer
 );
 
 CREATE TABLE public.weapons (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
     weapon_ammo_total integer,
-    weaponAmmoUsage integer,
-    weaponCritical varchar,
-    weaponDamageRoll varchar,
-    weaponDamageType varchar,
-    weaponLevel integer,
-    weaponName varchar,
-    weaponProficiency varchar,
-    weaponRange varchar,
-    weaponToHit integer,
-    weaponType varchar
+    weapon_ammo_usage integer,
+    weapon_critical varchar,
+    weapon_damage_roll varchar,
+    weapon_damage_type varchar,
+    weapon_level integer,
+    weapon_name varchar,
+    weapon_proficiency varchar,
+    weapon_range varchar,
+    weapon_to_hit integer,
+    weapon_type varchar
 );
 
 CREATE TABLE public.abilities (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
-    abilityDescription varchar,
-    abilityName varchar,
-    abilitySource varchar,
+    ability_description varchar,
+    ability_name varchar,
+    ability_source varchar,
     standard_action boolean,
     move_action boolean,
     swift_action boolean,
     full_action boolean,
     reaction boolean,
     other_action boolean,
-    usesResolve integer
+    uses_resolve integer
 );
 
 CREATE TABLE public.spells (
     character_fk varchar,
     FOREIGN KEY (character_fk) REFERENCES characters(id),
-    spellLevel varchar,
+    spell_level integer,
     standard_action boolean,
     move_action boolean,
     swift_action boolean,
     full_action boolean,
     reaction boolean,
     other_action boolean,
-    spellArea varchar,
-    spellCastingTime varchar,
-    spellDescriptionFull varchar,
-    spellDuration varchar,
-    spellEffect varchar,
-    spellPreviewDescription varchar,
-    spellRange varchar,
-    spellResistance varchar,
-    spellSavingThrow varchar,
-    spellSchool varchar,
-    spellTargets varchar,
-    spellTitle varchar
+    spell_area varchar,
+    spell_casting_time varchar,
+    spell_description_full varchar,
+    spell_duration varchar,
+    spell_effect varchar,
+    spell_preview_description varchar,
+    spell_range varchar,
+    spell_resistance varchar,
+    spell_saving_throw varchar,
+    spell_school varchar,
+    spell_targets varchar,
+    spell_title varchar
 );
