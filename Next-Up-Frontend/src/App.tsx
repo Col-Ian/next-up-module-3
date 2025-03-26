@@ -65,11 +65,11 @@ function App() {
 	}>();
 
 	useEffect(() => {
-		// fetch('http://localhost:5001/api/user/12345')
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		// 		setBackendData(data);
-		// 	});
+		fetch('http://localhost:5001/api/user/12345')
+			.then((response) => response.json())
+			.then((data) => {
+				setBackendData(data);
+			});
 	}, []);
 
 	return (

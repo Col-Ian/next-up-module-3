@@ -6,6 +6,7 @@ import {
 	getSingleUser,
 	insertUser,
 } from '../database/user_database';
+const bcrypt = require('bcrypt');
 
 type email = string;
 
@@ -23,7 +24,7 @@ const UserSchema = Joi.object<User>({
 	email: Joi.string().email().required(),
 });
 
-export const createUser = (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response) => {
 	const { error, value } = UserSchema.validate(req.body);
 	if (error !== undefined) {
 		return res
@@ -40,7 +41,8 @@ export const createUser = (req: Request, res: Response) => {
 
 	// const id = Math.floor(Math.random() * 1000000);
 	const id = crypto.randomUUID();
-	insertUser(id, user.name, user.password, user.email);
+	const hashedPassword = await bcrypt.hash(user.password, 10);
+	insertUser(id, user.name, hashedPassword, user.email);
 
 	return res.status(200).json(rest.success(`Created ${user.name}`));
 };
