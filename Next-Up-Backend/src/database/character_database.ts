@@ -26,46 +26,6 @@ type character = {
 	skills: SkillListType[];
 };
 
-type AbilityListTypes = {
-	abilityName: string;
-	abilityDescription: string;
-	abilitySource: string;
-	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
-	usesResolve: number;
-};
-
-type SkillListType = {
-	skillName: string;
-	isClassSkill: boolean;
-	classSkillBonus: number;
-	trainingRequired: boolean;
-	value: number;
-	insightBonusToValue: number;
-	skillFocus: boolean;
-	racialBonusToValue: number;
-	ranks: number;
-	insightBonusToRank: number;
-	operativeSpecializationSkill: boolean;
-	armorCheckPenalty: boolean;
-	attributeAffecting: string;
-};
-
-type SpellListTypes = {
-	spellTitle: string;
-	spellPreviewDescription: string;
-	spellSchool: string;
-	spellCastingTime: string;
-	spellRange: string;
-	spellTargets: string;
-	spellArea: string;
-	spellEffect: string;
-	spellDuration: string;
-	spellSavingThrow: string;
-	spellResistance: string;
-	spellDescriptionFull: string;
-	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
-};
-
 export async function insertCreateCharacter(character: character) {
 	let promises = [];
 	const characterQuery = `INSERT INTO public.characters(id, player_fk) VALUES($1, $2) RETURNING *`;
