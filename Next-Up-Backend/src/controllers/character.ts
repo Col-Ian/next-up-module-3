@@ -14,41 +14,41 @@
 import { type Request, type Response } from 'express';
 import * as rest from '../utils/rest';
 import Joi, { number } from 'joi';
-import { insertCreateCharacter } from '../database/character_database';
+import { insertCreateCharacter } from '../database/CharacterDatabase/insertCreateCharacter';
 
-export interface Character {
-	id: string;
-	player_fk: string;
-	strScore: number;
-	strBonus: number;
-	strPenalty: number;
-	dexScore: number;
-	dexBonus: number;
-	dexPenalty: number;
-	conScore: number;
-	conBonus: number;
-	conPenalty: number;
-	intScore: number;
-	intBonus: number;
-	intPenalty: number;
-	wisScore: number;
-	wisBonus: number;
-	wisPenalty: number;
-	chaScore: number;
-	chaBonus: number;
-	chaPenalty: number;
-	abilities: AbilityListTypes[];
-}
+// export interface Character {
+// 	id: string;
+// 	player_fk: string;
+// 	strScore: number;
+// 	strBonus: number;
+// 	strPenalty: number;
+// 	dexScore: number;
+// 	dexBonus: number;
+// 	dexPenalty: number;
+// 	conScore: number;
+// 	conBonus: number;
+// 	conPenalty: number;
+// 	intScore: number;
+// 	intBonus: number;
+// 	intPenalty: number;
+// 	wisScore: number;
+// 	wisBonus: number;
+// 	wisPenalty: number;
+// 	chaScore: number;
+// 	chaBonus: number;
+// 	chaPenalty: number;
+// 	abilities: AbilityListTypes[];
+// }
 
-type AbilityListTypes = {
-	abilityName: string;
-	abilityDescription: string;
-	abilitySource: string;
-	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
-	usesResolve: number;
-};
+// type AbilityListTypes = {
+// 	abilityName: string;
+// 	abilityDescription: string;
+// 	abilitySource: string;
+// 	actionType: [boolean, boolean, boolean, boolean, boolean, boolean];
+// 	usesResolve: number;
+// };
 
-const CharacterSchema = Joi.object<Character>({
+const CharacterSchema = Joi.object<CharacterCreationType>({
 	id: Joi.string().required(),
 	player_fk: Joi.string().required(),
 	strScore: Joi.number().required(),
@@ -87,7 +87,7 @@ export const createCharacter = async (req: Request, res: Response) => {
 				.json(rest.error('Data is not formatted correctly.'));
 		}
 
-		const newCharacter: Character = value;
+		const newCharacter: CharacterCreationType = value;
 		await insertCreateCharacter(newCharacter);
 		return res.status(200).json(rest.success('Character created.'));
 	} catch {

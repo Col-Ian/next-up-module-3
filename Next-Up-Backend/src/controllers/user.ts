@@ -5,7 +5,7 @@ import {
 	deleteSingleUser,
 	getSingleUser,
 	insertUser,
-} from '../database/user_database';
+} from '../database/UserDatabase/user_database';
 const bcrypt = require('bcrypt');
 
 type email = string;

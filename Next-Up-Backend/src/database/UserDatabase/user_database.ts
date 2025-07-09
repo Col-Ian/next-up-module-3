@@ -1,6 +1,6 @@
 // const { Pool } = require('pg');
 
-import { pool } from '../utils/databasePool';
+import { pool } from '../../utils/databasePool';
 
 // const pool = new Pool({
 // 	host: 'localhost',

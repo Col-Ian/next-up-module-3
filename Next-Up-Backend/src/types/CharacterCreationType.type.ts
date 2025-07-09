@@ -1,0 +1,25 @@
+type CharacterCreationType = {
+	id: string;
+	player_fk: string;
+	strScore: number;
+	strBonus: number;
+	strPenalty: number;
+	dexScore: number;
+	dexBonus: number;
+	dexPenalty: number;
+	conScore: number;
+	conBonus: number;
+	conPenalty: number;
+	intScore: number;
+	intBonus: number;
+	intPenalty: number;
+	wisScore: number;
+	wisBonus: number;
+	wisPenalty: number;
+	chaScore: number;
+	chaBonus: number;
+	chaPenalty: number;
+	abilities: AbilityListTypes[];
+	spells: SpellListTypes[];
+	skills: SkillListType[];
+};
